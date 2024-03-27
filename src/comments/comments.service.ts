@@ -32,6 +32,7 @@ export class CommentsService {
     return this.CommentModel.find({
       parent: null
     }).populate(['user', 'parent'])
+    .sort({ createdAt: -1 })
     .exec();
   }
 
@@ -39,6 +40,7 @@ export class CommentsService {
     return this.CommentModel.find({
       parent: parentId
     }).populate(['user', 'parent'])
+    .sort({ createdAt: -1 })
     .exec();
   }
 
